@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite" verbose="1" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
+    <test name="TestNG Demo 1 - Chrome">
+        <parameter name="browserName" value="Chrome"></parameter>
+        <group>
+        <run>
+                <exclude name="ui"></exclude>
+                <include name="regressiontest"></include>
+            </run>
+        </group>
+        <classes>
+            <class name="testcases.VerifyValidPassword"/>
+        </classes>
+    </test>
+    <test name="TestNG Demo 2 - Firefox">
+        <parameter name="browserName" value="Firefox"></parameter>
+        <classes>
+            <class name="testcases.VerifyValidPassword"/>
+        </classes>
+    </test>
+</suite>
